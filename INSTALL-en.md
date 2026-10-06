@@ -2,6 +2,25 @@
 
 The native v2 pet needs only `pet.json` and `spritesheet.webp`. The root of `zhao-codex-native-v2.zip` contains exactly those two files.
 
+## Copyable agent-install prompt
+
+```text
+Please install the native Codex v2 pet “照” on this computer.
+
+Follow these steps:
+1. Identify whether this system is macOS or Windows.
+2. Download and extract https://github.com/XCPeiyuan/zhao-chatgpt-pet/releases/download/v1.0.0/zhao-codex-native-v2.zip to a temporary folder.
+3. Locate pet.json and spritesheet.webp. The ZIP root contains only these two files; do not use the extraction folder itself as the final pet directory.
+4. Install to:
+   - macOS: ~/.codex/pets/zhao/
+   - Windows: %USERPROFILE%\.codex\pets\zhao\
+5. Copy only pet.json and spritesheet.webp. Do not delete or modify any other pet files.
+6. Verify pet.json has id zhao, spriteVersionNumber 2, and spritesheetPath spritesheet.webp; confirm spritesheet.webp exists and is readable.
+7. If either destination file already exists, list the conflicting file and stop to ask whether I want it replaced. Never overwrite it without approval.
+8. Report the actual install path and checks, then remind me to refresh Pets in Codex Settings and select “照”. Do not interrupt a running task; if restarting Codex is necessary, explain first and wait until current work is safe to stop.
+9. If the pet remains missing after refresh on Windows, first check whether Codex Desktop is using a WSL backend. Do not edit pet.json, convert the sheet, replace spritesheet.webp, or switch backends on your own. If WSL is confirmed, explain that moving tasks to the Windows-native backend may affect workflows that depend on WSL and ask for my approval. Only after approval and once tasks are safe to stop, switch the task backend, fully quit Codex from the system tray, relaunch it, and refresh Pets. The integrated terminal can continue using WSL.
+```
+
 ## Windows
 
 Download the ZIP to your Downloads folder, then run this in PowerShell:
