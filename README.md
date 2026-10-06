@@ -1,4 +1,4 @@
-# 照｜Codex 原生 v2 桌宠
+# 绝区零 照｜Codex 原生 v2 桌宠
 
 [English](README.en.md)
 
