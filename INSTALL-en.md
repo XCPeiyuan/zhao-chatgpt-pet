@@ -1,6 +1,6 @@
 # Alternative installation methods for Zhao
 
-The native v2 pet needs only `pet.json` and `spritesheet.webp`. The root of `zhao-codex-native-v2.zip` contains exactly those two files.
+The native v2 pet needs only `pet.json` and `spritesheet.webp`. The [Release ZIP](https://github.com/XCPeiyuan/zhao-chatgpt-pet/releases/tag/v1.0.0) contains those two files at its root.
 
 ## Manual installation
 
@@ -53,8 +53,7 @@ This alternative uses the Pets plugin in a supported ChatGPT Work environment. I
 
 ```text
 Use the Pets plugin create-pet skill (or hatch-pet if provided by this environment) to install the attached zhao-pet-v2.png as the pet “照”.
-Treat it as a finished v2 sprite sheet. Preserve its artwork, nine animation states, and sixteen gaze directions; do not regenerate it from a character reference.
+Use the finished v2 sheet with its nine animation states and sixteen gaze directions.
 Validate the sheet and show its motion first. If a pet with the same name exists, check whether it uses the same sheet to avoid creating a duplicate.
-After validation, follow the skill-supported upload, create, and select workflow. Verify the returned pet ID and active state. If the skill or upload capability is unavailable, report the limitation rather than claiming success.
+After validation, follow the skill-supported upload, create, and select workflow. Verify the returned pet ID and active state.
 ```
-

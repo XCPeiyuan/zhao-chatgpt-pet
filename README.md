@@ -2,7 +2,7 @@
 
 [English](README.en.md)
 
-「照」是可安装到 Codex Desktop 的动画桌宠资源，不是独立软件。原生包只包含 `pet.json` 和 `spritesheet.webp`；动作含义由 v2 图集布局决定，图片中不需要印文字或提示词。
+「照」是一只粉发长耳的 Q 版兔子桌宠，支持 Codex Desktop 原生 v2 格式，包含九种动画状态和十六向视线。
 
 ## 快速安装：Agent 帮忙安装（推荐）
 
@@ -10,7 +10,6 @@
 
 ```text
 请帮我在这台电脑上安装 Codex 原生 v2 桌宠“照”。
-
 
 请按以下步骤操作：
 1. 识别当前系统是 macOS 还是 Windows。
@@ -29,14 +28,14 @@
 ### 备用安装方式
 
 - [自己安装：Windows / macOS](INSTALL-zh-CN.md#自己安装)：下载 Release 后复制两个原生文件。
-- [通过 Pets 创建技能安装](INSTALL-zh-CN.md#通过-pets-创建技能安装)：使用仓库保留的 PNG 图集，在支持该插件的环境中创建并选择桌宠。
+- [通过 Pets 创建技能安装](INSTALL-zh-CN.md#通过-pets-创建技能安装)：使用 PNG 图集，在支持该插件的环境中创建并选择桌宠。
 
 ## 原生桌宠包
 
 - [Release 安装包](https://github.com/XCPeiyuan/zhao-chatgpt-pet/releases/tag/v1.0.0)：ZIP 根目录只有 `pet.json` 和 `spritesheet.webp`。
 - `pet.json`：ID 为 `zhao`、名称为“照”、图集版本为 v2。
 - `spritesheet.webp`：无损 WebP，1536 × 2288 px，透明 RGBA，8 列 × 11 行，每格 192 × 208 px。
-- `zhao-pet-v2.png`：同一图集的 PNG 校对源。
+- `zhao-pet-v2.png`：通过 Pets 创建技能安装时使用的透明 PNG 图集。
 - `sprite-sheet-map.png`：逐行动作和帧格索引图，仅供查看，不要放进安装目录。
 - `look-directions.png`：中性姿态与 16 向视线校对图，仅供查看。
 - `animation-preview.gif`：动画预览。
@@ -66,7 +65,7 @@
 
 ![中性姿态与 16 向视线](look-directions.png)
 
-「照」是粉发兔耳角色；手脚保持毛茸茸的兔子外形，没有肉垫。工作、等待、受阻等符号已经画进相应动画帧，校对图不会混进安装包。
+工作状态使用平板和加载图标，等待状态带问号对话框，受阻状态带困惑符号。
 
 ## 校验
 
@@ -81,5 +80,4 @@
 
 ## 来源与权利说明
 
-这是非官方、AI 辅助制作的同人桌宠素材，创作参考包括维护者提供的角色设计图和游戏画面；本仓库不重新分发这些参考截图。游戏及其角色、名称、商标和相关素材的权利归各自权利人所有。本仓库不授予对第三方素材的许可，也不代表 HoYoverse 官方。仓库未附通用开源许可证。
-
+这是非官方、AI 辅助制作的同人桌宠素材。游戏及其角色、名称、商标和相关素材的权利归各自权利人所有。本仓库不授予对第三方素材的许可，也不代表 HoYoverse 官方。仓库未附通用开源许可证。

@@ -2,7 +2,7 @@
 
 [简体中文](README.md)
 
-Zhao is an animated pet asset for Codex Desktop, not a standalone app. The native package contains only `pet.json` and `spritesheet.webp`; v2 animation meanings come from the fixed sheet layout, so no text or prompt needs to be printed in the artwork.
+Zhao is a pink-haired, long-eared chibi rabbit pet for Codex Desktop. The native v2 sheet includes nine animation states and sixteen gaze directions.
 
 ## Quick install: use an agent (recommended)
 
@@ -10,7 +10,6 @@ Copy the prompt below into an agent with network access and permission to manage
 
 ```text
 Please install the native Codex v2 pet “照” on this computer.
-
 
 Follow these steps:
 1. Identify whether this system is macOS or Windows.
@@ -29,14 +28,14 @@ Follow these steps:
 ### Alternative methods
 
 - [Install manually on Windows / macOS](INSTALL-en.md#manual-installation): download the Release and copy the two native files.
-- [Use the Pets creation skill](INSTALL-en.md#install-through-the-pets-creation-skill): use the retained PNG sheet to create and select the pet in an environment supporting that plugin.
+- [Use the Pets creation skill](INSTALL-en.md#install-through-the-pets-creation-skill): use the PNG sheet to create and select the pet in an environment supporting that plugin.
 
 ## Native pet package
 
 - [Release package](https://github.com/XCPeiyuan/zhao-chatgpt-pet/releases/tag/v1.0.0): the archive root contains only `pet.json` and `spritesheet.webp`.
 - `pet.json`: pet ID `zhao`, display name “照”, sprite version 2.
 - `spritesheet.webp`: lossless WebP, 1536 × 2288 px, transparent RGBA, 8 columns × 11 rows, 192 × 208 px per cell.
-- `zhao-pet-v2.png`: PNG source used for visual verification.
+- `zhao-pet-v2.png`: transparent PNG sheet for installation through the Pets creation skill.
 - `sprite-sheet-map.png`: labeled row and frame map for inspection only; do not put it in the install directory.
 - `look-directions.png`: neutral pose and 16 gaze directions for inspection only.
 - `animation-preview.gif`: animation preview.
@@ -66,7 +65,7 @@ Rows below are numbered from 1. The first nine rows are animation states; the fi
 
 ![Neutral pose and all 16 gaze directions](look-directions.png)
 
-Zhao is a pink-haired rabbit-eared character. Her furry hands and feet have no paw pads. The work, waiting, and blocked indicators are drawn into their respective animation frames; the reference maps stay out of the install archive.
+The working state uses a tablet and loading indicator, the waiting state includes a question bubble, and the blocked state includes a puzzled symbol.
 
 ## Validation
 
@@ -81,5 +80,4 @@ If the files are installed correctly but the pet remains missing after refreshin
 
 ## Provenance and rights
 
-This is an unofficial, AI-assisted fan-made pet based on character-design and in-game references supplied by the maintainer. Those reference screenshots are not redistributed here. Rights to the game, characters, names, trademarks, and related assets remain with their owners. This repository grants no license to third-party material and is not affiliated with or endorsed by HoYoverse. No general-purpose open-source license is included.
-
+This is an unofficial, AI-assisted fan-made pet. Rights to the game, characters, names, trademarks, and related assets remain with their owners. This repository grants no license to third-party material and is not affiliated with or endorsed by HoYoverse. No general-purpose open-source license is included.

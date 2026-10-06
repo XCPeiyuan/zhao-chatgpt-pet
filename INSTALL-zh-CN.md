@@ -1,6 +1,6 @@
 # 「照」的备用安装方式
 
-原生 v2 安装只需要 `pet.json` 和 `spritesheet.webp`。本仓库的 `zhao-codex-native-v2.zip` 根目录正好只有这两个文件。
+原生 v2 安装只需要 `pet.json` 和 `spritesheet.webp`。[Release 安装包](https://github.com/XCPeiyuan/zhao-chatgpt-pet/releases/tag/v1.0.0)的 ZIP 根目录包含这两个文件。
 
 ## 自己安装
 
@@ -53,8 +53,7 @@ cp "${TMPDIR:-/tmp}/zhao-codex-native/spritesheet.webp" "$pet_dir/"
 
 ```text
 请使用 Pets 插件的 create-pet 技能（或当前环境提供的 hatch-pet），将附件 zhao-pet-v2.png 作为已完成的 v2 精灵图集安装为桌宠“照”。
-保留现有画面、九个动画状态和十六向视线，不重绘，不把 PNG 当作角色参考重新生成。
+使用现成图集，保留九个动画状态和十六向视线。
 先验证图集并展示动画预览；如果已存在同名桌宠，先检查是否为同一图集，避免重复创建。
-通过校验后，按技能支持的上传、创建、选择流程操作，并核对返回的桌宠 ID 与激活状态。若技能或上传能力不可用，请说明限制，不要编造成功结果。
+通过校验后，按技能支持的上传、创建、选择流程操作，并核对返回的桌宠 ID 与激活状态。
 ```
-
