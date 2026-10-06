@@ -6,7 +6,7 @@
 
 ## 快速安装
 
-1. 下载 [`zhao-codex-native-v2.zip`](zhao-codex-native-v2.zip) 并解压到临时目录。
+1. 下载 [zhao-codex-native-v2.zip](https://github.com/XCPeiyuan/zhao-chatgpt-pet/releases/download/v1.0.0/zhao-codex-native-v2.zip) 并解压到临时目录。
 2. 将其中的 `pet.json` 和 `spritesheet.webp` 放进 `%USERPROFILE%\.codex\pets\zhao\`。不要把临时解压目录直接当作桌宠目录。
 3. 在 Codex 的“设置 → Pets”刷新并选择“照”。若文件名已存在，先停止并检查，不要覆盖。
 
@@ -15,6 +15,7 @@
 ## 原生桌宠包
 
 - `zhao-codex-native-v2.zip`：可直接安装的 ZIP，根目录只有 `pet.json` 和 `spritesheet.webp`。
+- `zhao-pets-upload-bundle.zip`：旧版 Work Pets 上传资料包，不是 Codex 原生安装包；请使用上方 Release。
 - `codex-native/pet.json`：ID 为 `zhao`、名称为“照”、图集版本为 v2。
 - `codex-native/spritesheet.webp`：无损 WebP，1536 × 2288 px，透明 RGBA，8 列 × 11 行，每格 192 × 208 px。
 - `zhao-pet-v2.png`：同一图集的 PNG 校对源。
