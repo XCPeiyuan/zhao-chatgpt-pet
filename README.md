@@ -1,38 +1,61 @@
-# 照｜ChatGPT Pets 动画桌宠
+# 照｜Codex 原生 v2 桌宠
 
 [English](README.en.md)
 
-这是供 Codex / ChatGPT Work 内置 Pets 功能使用的自定义桌宠素材。它不是独立桌宠软件，也不是可双击运行的程序。
+「照」是可安装到 Codex Desktop 的动画桌宠资源，不是独立软件。原生包只包含 `pet.json` 和 `spritesheet.webp`；动作含义由 v2 图集布局决定，图片中不需要印文字或提示词。
 
-## 快速使用
+## 快速安装
 
-1. 下载并解压 `zhao-pets-upload-bundle.zip`，或者直接下载 `zhao-pet-v2.png`。
-2. 在 Codex / ChatGPT Work 的 Pets 自定义桌宠流程中上传 `zhao-pet-v2.png`。
-3. 按界面提示命名并保存、选择桌宠。
+1. 下载 [`zhao-codex-native-v2.zip`](zhao-codex-native-v2.zip) 并解压到临时目录。
+2. 将其中的 `pet.json` 和 `spritesheet.webp` 放进 `%USERPROFILE%\.codex\pets\zhao\`。不要把临时解压目录直接当作桌宠目录。
+3. 在 Codex 的“设置 → Pets”刷新并选择“照”。若文件名已存在，先停止并检查，不要覆盖。
 
-Pets 接收精灵图 PNG/WebP；ZIP 只是方便下载的资料包，不能直接上传到 Pets。
+完整的 [Windows / macOS 安装说明](INSTALL-zh-CN.md) 与 [English guide](INSTALL-en.md)。
 
-## 文件
+## 原生桌宠包
 
-- `zhao-pets-upload-bundle.zip`：上传用精灵图及中英文操作说明。
-- `zhao-pet-v2.png`：Pets v2 精灵图集，1536 × 2288 px，透明 RGBA，8 列 × 11 行，每格 192 × 208 px。
-- `animation-preview.gif`：各动画状态的预览。
-- `look-directions.png`：中性姿态和 16 个视线方向的标注校对图。
+- `zhao-codex-native-v2.zip`：可直接安装的 ZIP，根目录只有 `pet.json` 和 `spritesheet.webp`。
+- `codex-native/pet.json`：ID 为 `zhao`、名称为“照”、图集版本为 v2。
+- `codex-native/spritesheet.webp`：无损 WebP，1536 × 2288 px，透明 RGBA，8 列 × 11 行，每格 192 × 208 px。
+- `zhao-pet-v2.png`：同一图集的 PNG 校对源。
+- `sprite-sheet-map.png`：逐行动作和帧格索引图，仅供查看，不要放进安装目录。
+- `look-directions.png`：中性姿态与 16 向视线校对图，仅供查看。
+- `animation-preview.gif`：动画预览。
 
-## 16 向视线的位置
+## 图集行映射
 
-16 个方向已经包含在 `zhao-pet-v2.png` 中，不是额外的 16 张安装图片：图集第 10、11 行（从 1 开始计数）各有 8 帧。第 10 行依次为 000° 至 157.5°，第 11 行依次为 180° 至 337.5°，每帧间隔 22.5°。方向含义和逐帧预览见 `look-directions.png`。`look-directions.png` 也展示了中性姿态与全部方向：
+行号从 1 开始。前 9 行是动画状态，最后两行是 16 个视线方向。动画行的帧数已按成品图集核对。
+
+| 行 | 状态 | 帧数 | 含义 |
+|---:|---|---:|---|
+| 1 | `idle` | 6 | 待机、眨眼 |
+| 2 | `running-right` | 8 | 向右蹦跳 |
+| 3 | `running-left` | 8 | 向左蹦跳 |
+| 4 | `waving` | 4 | 挥手问候 |
+| 5 | `jumping` | 5 | 开心跳跃 |
+| 6 | `failed` | 8 | 受阻、托腮困惑 |
+| 7 | `waiting` | 6 | 举手等待回应，对话框问号 |
+| 8 | `running` | 6 | 坐着操作平板，旁有加载图标 |
+| 9 | `review` | 6 | 检查结果 |
+| 10–11 | 16 向视线 | 8 + 8 | 顺时针每 22.5° 一帧，000°–337.5° |
+
+![图集逐行与帧格映射](sprite-sheet-map.png)
 
 ![中性姿态与 16 向视线](look-directions.png)
 
+「照」是粉发兔耳角色；手脚保持毛茸茸的兔子外形，没有肉垫。工作、等待、受阻等符号已经画进相应动画帧，校对图不会混进安装包。
+
 ## 校验
 
-图集通过 Pets v2 结构预检和质量校验。它使用透明 RGBA，尺寸、网格及必需帧符合 v2 图集格式。SHA-256：
+- `pet.json` 可解析，`id` 为 `zhao`，v2 图集路径为 `spritesheet.webp`。
+- PNG 源图为 RGBA，尺寸为 1536 × 2288；alpha 范围为 0–255，具有真实透明像素。
+- WebP 解码后的 RGBA 像素与 PNG 源图逐像素完全一致；8 × 11 网格与单格尺寸可整除。
+- ZIP 布局已核对：仅包含 `pet.json` 和 `spritesheet.webp`。
 
-```text
-bb7c4129ea4f415035494be44299ed0477bf65ff6e270418c726f460fda848eb
-```
+## Windows 提示
+
+如果文件安装正确、刷新 Pets 后仍未出现，先检查 Codex Desktop 是否使用 WSL 后端。不要为此修改 pet.json、转换图集或擅自切换后端；切换可能影响依赖 WSL 的工作流，应先确认。
 
 ## 来源与权利说明
 
-这是非官方、AI 辅助制作的同人桌宠素材，创作参考包括维护者提供的角色设计图和游戏画面；本仓库不重新分发这些参考截图。游戏及其角色、名称、商标和相关素材的权利归各自权利人所有。本仓库不授予对这些第三方内容的任何许可，也不代表 HoYoverse 官方。仓库未附 MIT、CC 等通用开源许可证。请查看 [HoYoverse 同人作品指南](https://support.hoyoverse.com/hc/en-us/articles/51005649400729-What-are-the-guidelines-for-creating-and-selling-fan-made-content)。
+这是非官方、AI 辅助制作的同人桌宠素材，创作参考包括维护者提供的角色设计图和游戏画面；本仓库不重新分发这些参考截图。游戏及其角色、名称、商标和相关素材的权利归各自权利人所有。本仓库不授予对第三方素材的许可，也不代表 HoYoverse 官方。仓库未附通用开源许可证。
