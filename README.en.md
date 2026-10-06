@@ -10,7 +10,7 @@ Zhao is an animated pet asset for Codex Desktop, not a standalone app. The nativ
 2. Copy `pet.json` and `spritesheet.webp` into `%USERPROFILE%\.codex\pets\zhao\`. Do not use the temporary extraction folder itself as the pet directory.
 3. Refresh Pets in Codex Settings and select “照”. If either destination file already exists, stop and inspect it instead of overwriting it.
 
-See the [Windows / macOS installation guide in Chinese](INSTALL-zh-CN.md) or the [English guide](INSTALL-en.md).
+See the [Windows / macOS installation guide in Chinese](INSTALL-zh-CN.md) or the [English guide](INSTALL-en.md). Both include a copyable agent-install prompt.
 
 ## Native pet package
 
