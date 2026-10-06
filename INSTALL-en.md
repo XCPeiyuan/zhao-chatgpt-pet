@@ -1,27 +1,10 @@
-# Install Zhao in Codex Desktop (Windows / macOS)
+# Alternative installation methods for Zhao
 
 The native v2 pet needs only `pet.json` and `spritesheet.webp`. The root of `zhao-codex-native-v2.zip` contains exactly those two files.
 
-## Copyable agent-install prompt
+## Manual installation
 
-```text
-Please install the native Codex v2 pet “照” on this computer.
-
-Follow these steps:
-1. Identify whether this system is macOS or Windows.
-2. Download and extract https://github.com/XCPeiyuan/zhao-chatgpt-pet/releases/download/v1.0.0/zhao-codex-native-v2.zip to a temporary folder.
-3. Locate pet.json and spritesheet.webp. The ZIP root contains only these two files; do not use the extraction folder itself as the final pet directory.
-4. Install to:
-   - macOS: ~/.codex/pets/zhao/
-   - Windows: %USERPROFILE%\.codex\pets\zhao\
-5. Copy only pet.json and spritesheet.webp. Do not delete or modify any other pet files.
-6. Verify pet.json has id zhao, spriteVersionNumber 2, and spritesheetPath spritesheet.webp; confirm spritesheet.webp exists and is readable.
-7. If either destination file already exists, list the conflicting file and stop to ask whether I want it replaced. Never overwrite it without approval.
-8. Report the actual install path and checks, then remind me to refresh Pets in Codex Settings and select “照”. Do not interrupt a running task; if restarting Codex is necessary, explain first and wait until current work is safe to stop.
-9. If the pet remains missing after refresh on Windows, first check whether Codex Desktop is using a WSL backend. Do not edit pet.json, convert the sheet, replace spritesheet.webp, or switch backends on your own. If WSL is confirmed, explain that moving tasks to the Windows-native backend may affect workflows that depend on WSL and ask for my approval. Only after approval and once tasks are safe to stop, switch the task backend, fully quit Codex from the system tray, relaunch it, and refresh Pets. The integrated terminal can continue using WSL.
-```
-
-## Windows
+### Windows
 
 Download the ZIP to your Downloads folder, then run this in PowerShell:
 
@@ -49,7 +32,7 @@ Other files in `$petDir` are left untouched. If either destination filename alre
 
 Refresh Pets in Codex Settings and select “照”. If it remains missing, first check whether Codex Desktop uses a WSL backend; do not switch without approval because it may affect workflows that depend on WSL. Do not modify the app installation directory.
 
-## macOS
+### macOS
 
 ```bash
 unzip ~/Downloads/zhao-codex-native-v2.zip -d "${TMPDIR:-/tmp}/zhao-codex-native"
@@ -63,3 +46,15 @@ cp "${TMPDIR:-/tmp}/zhao-codex-native/spritesheet.webp" "$pet_dir/"
 ```
 
 Reopen Codex, go to Settings → Pets, refresh the list, and select “照”.
+
+## Install through the Pets creation skill
+
+This alternative uses the Pets plugin in a supported ChatGPT Work environment. It is a separate workflow from the local native Codex installation above. Download [zhao-pet-v2.png](zhao-pet-v2.png), attach it to the agent, and use this prompt. If the skill is unavailable, use the recommended native installation method.
+
+```text
+Use the Pets plugin create-pet skill (or hatch-pet if provided by this environment) to install the attached zhao-pet-v2.png as the pet “照”.
+Treat it as a finished v2 sprite sheet. Preserve its artwork, nine animation states, and sixteen gaze directions; do not regenerate it from a character reference.
+Validate the sheet and show its motion first. If a pet with the same name exists, check whether it uses the same sheet to avoid creating a duplicate.
+After validation, follow the skill-supported upload, create, and select workflow. Verify the returned pet ID and active state. If the skill or upload capability is unavailable, report the limitation rather than claiming success.
+```
+

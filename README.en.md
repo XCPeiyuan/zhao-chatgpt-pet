@@ -4,24 +4,47 @@
 
 Zhao is an animated pet asset for Codex Desktop, not a standalone app. The native package contains only `pet.json` and `spritesheet.webp`; v2 animation meanings come from the fixed sheet layout, so no text or prompt needs to be printed in the artwork.
 
-## Quick install
+## Quick install: use an agent (recommended)
 
-1. Download [zhao-codex-native-v2.zip](https://github.com/XCPeiyuan/zhao-chatgpt-pet/releases/download/v1.0.0/zhao-codex-native-v2.zip) and extract it to a temporary folder.
-2. Copy `pet.json` and `spritesheet.webp` into `%USERPROFILE%\.codex\pets\zhao\`. Do not use the temporary extraction folder itself as the pet directory.
-3. Refresh Pets in Codex Settings and select “照”. If either destination file already exists, stop and inspect it instead of overwriting it.
+Copy the prompt below into an agent with network access and permission to manage local files. It downloads the native package from the Release, checks the files, and installs the pet.
 
-See the [Windows / macOS installation guide in Chinese](INSTALL-zh-CN.md) or the [English guide](INSTALL-en.md). Both include a copyable agent-install prompt.
+```text
+Please install the native Codex v2 pet “照” on this computer.
+
+The repository is currently private. Use my authorized GitHub access; if access is unavailable, explain and stop rather than substituting other resources.
+
+Follow these steps:
+1. Identify whether this system is macOS or Windows.
+2. Download and extract https://github.com/XCPeiyuan/zhao-chatgpt-pet/releases/download/v1.0.0/zhao-codex-native-v2.zip to a temporary folder.
+3. Locate pet.json and spritesheet.webp. The ZIP root contains only these two files; do not use the extraction folder itself as the final pet directory.
+4. Install to:
+   - macOS: ~/.codex/pets/zhao/
+   - Windows: %USERPROFILE%\.codex\pets\zhao\
+5. Copy only pet.json and spritesheet.webp. Do not delete or modify any other pet files.
+6. Verify pet.json has id zhao, spriteVersionNumber 2, and spritesheetPath spritesheet.webp; confirm spritesheet.webp exists and is readable.
+7. If either destination file already exists, list the conflicting file and stop to ask whether I want it replaced. Never overwrite it without approval.
+8. Report the actual install path and checks, then remind me to refresh Pets in Codex Settings and select “照”. Do not interrupt a running task; if restarting Codex is necessary, explain first and wait until current work is safe to stop.
+9. If the pet remains missing after refresh on Windows, first check whether Codex Desktop is using a WSL backend. Do not edit pet.json, convert the sheet, replace spritesheet.webp, or switch backends on your own. If WSL is confirmed, explain that moving tasks to the Windows-native backend may affect workflows that depend on WSL and ask for my approval. Only after approval and once tasks are safe to stop, switch the task backend, fully quit Codex from the system tray, relaunch it, and refresh Pets. The integrated terminal can continue using WSL.
+```
+
+### Alternative methods
+
+- [Install manually on Windows / macOS](INSTALL-en.md#manual-installation): download the Release and copy the two native files.
+- [Use the Pets creation skill](INSTALL-en.md#install-through-the-pets-creation-skill): use the retained PNG sheet to create and select the pet in an environment supporting that plugin.
 
 ## Native pet package
 
-- `zhao-codex-native-v2.zip`: installable archive whose root contains only `pet.json` and `spritesheet.webp`.
-- `zhao-pets-upload-bundle.zip`: legacy Work Pets upload bundle, not a native Codex install; use the release above.
-- `codex-native/pet.json`: pet ID `zhao`, display name “照”, sprite version 2.
-- `codex-native/spritesheet.webp`: lossless WebP, 1536 × 2288 px, transparent RGBA, 8 columns × 11 rows, 192 × 208 px per cell.
+- [Release package](https://github.com/XCPeiyuan/zhao-chatgpt-pet/releases/tag/v1.0.0): the archive root contains only `pet.json` and `spritesheet.webp`.
+- `pet.json`: pet ID `zhao`, display name “照”, sprite version 2.
+- `spritesheet.webp`: lossless WebP, 1536 × 2288 px, transparent RGBA, 8 columns × 11 rows, 192 × 208 px per cell.
 - `zhao-pet-v2.png`: PNG source used for visual verification.
 - `sprite-sheet-map.png`: labeled row and frame map for inspection only; do not put it in the install directory.
 - `look-directions.png`: neutral pose and 16 gaze directions for inspection only.
 - `animation-preview.gif`: animation preview.
+
+## Animation preview
+
+![Animation state preview](animation-preview.gif)
 
 ## Sprite-sheet row map
 
@@ -60,3 +83,4 @@ If the files are installed correctly but the pet remains missing after refreshin
 ## Provenance and rights
 
 This is an unofficial, AI-assisted fan-made pet based on character-design and in-game references supplied by the maintainer. Those reference screenshots are not redistributed here. Rights to the game, characters, names, trademarks, and related assets remain with their owners. This repository grants no license to third-party material and is not affiliated with or endorsed by HoYoverse. No general-purpose open-source license is included.
+
