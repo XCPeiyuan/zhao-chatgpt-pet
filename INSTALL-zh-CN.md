@@ -2,6 +2,25 @@
 
 原生 v2 安装只需要 `pet.json` 和 `spritesheet.webp`。本仓库的 `zhao-codex-native-v2.zip` 根目录正好只有这两个文件。
 
+## 可直接交给 Agent 的安装提示词
+
+```text
+请帮我在这台电脑上安装 Codex 原生 v2 桌宠“照”。
+
+请按以下步骤操作：
+1. 识别当前系统是 macOS 还是 Windows。
+2. 从 https://github.com/XCPeiyuan/zhao-chatgpt-pet/releases/download/v1.0.0/zhao-codex-native-v2.zip 下载并解压到临时目录。
+3. 找到 pet.json 和 spritesheet.webp。ZIP 根目录只有这两个文件；不要把解压目录当作最终桌宠目录。
+4. 安装目录：
+   - macOS：~/.codex/pets/zhao/
+   - Windows：%USERPROFILE%\.codex\pets\zhao\
+5. 只复制 pet.json 和 spritesheet.webp；不要删除或修改其他桌宠文件。
+6. 检查 pet.json 的 id 为 zhao、spriteVersionNumber 为 2、spritesheetPath 为 spritesheet.webp，并确认 spritesheet.webp 存在且可读取。
+7. 如果目标位置已存在 pet.json 或 spritesheet.webp，列出冲突文件并停止，先询问我是否覆盖；不要擅自覆盖。
+8. 告诉我实际安装路径和检查结果，并提醒我在 Codex“设置 → Pets”刷新列表后选择“照”。不要中断正在运行的任务；如果需要重启 Codex，先说明并等当前工作安全结束。
+9. 如果 Windows 安装后刷新仍看不到“照”，先检查 Codex Desktop 是否使用 WSL 后端。不要修改 pet.json、转换图集、替换 spritesheet.webp 或擅自切换后端。若确认是 WSL，说明切换为 Windows 原生后端可能影响依赖 WSL 的工作流，先征求我的同意；得到同意且任务已安全停止后，才切换后端、从系统托盘完整退出并重启 Codex，再刷新 Pets。集成终端仍可继续使用 WSL。
+```
+
 ## Windows
 
 将 ZIP 下载到“下载”文件夹，在 PowerShell 中执行：
