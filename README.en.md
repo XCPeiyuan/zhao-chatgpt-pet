@@ -11,7 +11,6 @@ Copy the prompt below into an agent with network access and permission to manage
 ```text
 Please install the native Codex v2 pet “照” on this computer.
 
-The repository is currently private. Use my authorized GitHub access; if access is unavailable, explain and stop rather than substituting other resources.
 
 Follow these steps:
 1. Identify whether this system is macOS or Windows.
