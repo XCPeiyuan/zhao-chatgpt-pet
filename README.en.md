@@ -1,38 +1,61 @@
-# Zhao — Animated ChatGPT Pets Companion
+# Zhao — Native Codex v2 Pet
 
-[中文说明](README.md)
+[简体中文](README.md)
 
-This repository contains the custom pet asset for the built-in Pets feature in Codex / ChatGPT Work. It is not a standalone desktop-pet application or an executable program.
+Zhao is an animated pet asset for Codex Desktop, not a standalone app. The native package contains only `pet.json` and `spritesheet.webp`; v2 animation meanings come from the fixed sheet layout, so no text or prompt needs to be printed in the artwork.
 
-## Quick start
+## Quick install
 
-1. Download and extract `zhao-pets-upload-bundle.zip`, or download `zhao-pet-v2.png` directly.
-2. In the custom-pet flow in Codex / ChatGPT Work Pets, upload `zhao-pet-v2.png`.
-3. Follow the interface to name and save/select the pet.
+1. Download [`zhao-codex-native-v2.zip`](zhao-codex-native-v2.zip) and extract it to a temporary folder.
+2. Copy `pet.json` and `spritesheet.webp` into `%USERPROFILE%\.codex\pets\zhao\`. Do not use the temporary extraction folder itself as the pet directory.
+3. Refresh Pets in Codex Settings and select “照”. If either destination file already exists, stop and inspect it instead of overwriting it.
 
-Pets accepts a sprite-sheet PNG/WebP. The ZIP is a convenient download bundle; it cannot be uploaded directly into Pets.
+See the [Windows / macOS installation guide in Chinese](INSTALL-zh-CN.md) or the [English guide](INSTALL-en.md).
 
-## Files
+## Native pet package
 
-- `zhao-pets-upload-bundle.zip` — the upload sheet and Chinese/English instructions.
-- `zhao-pet-v2.png` — Pets v2 sprite sheet, transparent RGBA, 1536 × 2288 px, 8 columns × 11 rows, 192 × 208 px per cell.
-- `animation-preview.gif` — animation preview across the states.
-- `look-directions.png` — labeled review sheet with the neutral pose and all 16 look directions.
+- `zhao-codex-native-v2.zip`: installable archive whose root contains only `pet.json` and `spritesheet.webp`.
+- `codex-native/pet.json`: pet ID `zhao`, display name “照”, sprite version 2.
+- `codex-native/spritesheet.webp`: lossless WebP, 1536 × 2288 px, transparent RGBA, 8 columns × 11 rows, 192 × 208 px per cell.
+- `zhao-pet-v2.png`: PNG source used for visual verification.
+- `sprite-sheet-map.png`: labeled row and frame map for inspection only; do not put it in the install directory.
+- `look-directions.png`: neutral pose and 16 gaze directions for inspection only.
+- `animation-preview.gif`: animation preview.
 
-## Where the 16 look directions are
+## Sprite-sheet row map
 
-All 16 directions are already in `zhao-pet-v2.png`; they are not separate install images. Rows 10 and 11 (one-based) each contain eight frames. Row 10 runs from 000° through 157.5°, and row 11 from 180° through 337.5°, in 22.5° steps. See `look-directions.png` for the labels and per-frame preview.
+Rows below are numbered from 1. The first nine rows are animation states; the final two contain all 16 gaze directions. Frame counts were checked against the finished sheet.
 
-![Neutral pose and all 16 look directions](look-directions.png)
+| Row | State | Frames | Meaning |
+|---:|---|---:|---|
+| 1 | `idle` | 6 | Idle and blinking |
+| 2 | `running-right` | 8 | Hopping right |
+| 3 | `running-left` | 8 | Hopping left |
+| 4 | `waving` | 4 | Wave hello |
+| 5 | `jumping` | 5 | Happy jump |
+| 6 | `failed` | 8 | Blocked and puzzled, chin in paw |
+| 7 | `waiting` | 6 | Raised hand, waiting for a reply, question bubble |
+| 8 | `running` | 6 | Seated with a tablet and loading indicator |
+| 9 | `review` | 6 | Reviewing results |
+| 10–11 | 16 gaze directions | 8 + 8 | Clockwise, one frame every 22.5°, 000°–337.5° |
+
+![Sprite-sheet row and frame map](sprite-sheet-map.png)
+
+![Neutral pose and all 16 gaze directions](look-directions.png)
+
+Zhao is a pink-haired rabbit-eared character. Her furry hands and feet have no paw pads. The work, waiting, and blocked indicators are drawn into their respective animation frames; the reference maps stay out of the install archive.
 
 ## Validation
 
-The sheet passed the Pets v2 structural preflight and quality validation. It uses transparent RGBA, with dimensions, grid, and required frames matching the v2 atlas format. SHA-256:
+- `pet.json` parses, uses ID `zhao`, and points to the v2 sheet `spritesheet.webp`.
+- The PNG source is RGBA at 1536 × 2288; its alpha channel ranges from 0 to 255 and includes truly transparent pixels.
+- Decoding the WebP produces RGBA pixels identical to the PNG source; the 8 × 11 grid divides evenly into cells.
+- The ZIP layout was checked and contains only `pet.json` and `spritesheet.webp`.
 
-```text
-bb7c4129ea4f415035494be44299ed0477bf65ff6e270418c726f460fda848eb
-```
+## Windows note
+
+If the files are installed correctly but the pet remains missing after refreshing Pets, first check whether Codex Desktop is using a WSL backend. Do not modify `pet.json`, convert the sheet, or switch backends without approval; switching may affect workflows that depend on WSL.
 
 ## Provenance and rights
 
-This is an unofficial, AI-assisted fan-made pet asset based on character-design and in-game references supplied by the maintainer. Those reference screenshots are not redistributed here. Rights to the game, characters, names, trademarks, and related source material remain with their respective owners. This repository grants no license to that third-party material and is not affiliated with or endorsed by HoYoverse. No general-purpose open-source license is included. Please review [HoYoverse's fan-made content guidelines](https://support.hoyoverse.com/hc/en-us/articles/51005649400729-What-are-the-guidelines-for-creating-and-selling-fan-made-content).
+This is an unofficial, AI-assisted fan-made pet based on character-design and in-game references supplied by the maintainer. Those reference screenshots are not redistributed here. Rights to the game, characters, names, trademarks, and related assets remain with their owners. This repository grants no license to third-party material and is not affiliated with or endorsed by HoYoverse. No general-purpose open-source license is included.
