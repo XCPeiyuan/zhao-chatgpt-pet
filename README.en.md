@@ -23,6 +23,8 @@ Pets accepts a sprite-sheet PNG/WebP. The ZIP is a convenient download bundle; i
 
 All 16 directions are already in `zhao-pet-v2.png`; they are not separate install images. Rows 10 and 11 (one-based) each contain eight frames. Row 10 runs from 000° through 157.5°, and row 11 from 180° through 337.5°, in 22.5° steps. See `look-directions.png` for the labels and per-frame preview.
 
+![Neutral pose and all 16 look directions](look-directions.png)
+
 ## Validation
 
 The sheet passed the Pets v2 structural preflight and quality validation. It uses transparent RGBA, with dimensions, grid, and required frames matching the v2 atlas format. SHA-256:
