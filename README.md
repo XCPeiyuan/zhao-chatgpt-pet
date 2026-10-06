@@ -10,7 +10,7 @@
 2. 将其中的 `pet.json` 和 `spritesheet.webp` 放进 `%USERPROFILE%\.codex\pets\zhao\`。不要把临时解压目录直接当作桌宠目录。
 3. 在 Codex 的“设置 → Pets”刷新并选择“照”。若文件名已存在，先停止并检查，不要覆盖。
 
-完整的 [Windows / macOS 安装说明](INSTALL-zh-CN.md) 与 [English guide](INSTALL-en.md)。
+完整的 [Windows / macOS 安装说明及 Agent 提示词](INSTALL-zh-CN.md) 与 [English guide](INSTALL-en.md)。
 
 ## 原生桌宠包
 
