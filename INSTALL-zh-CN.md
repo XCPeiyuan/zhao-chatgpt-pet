@@ -1,8 +1,46 @@
-# 安装说明：照
+# 安装「照」到 Codex Desktop（Windows / macOS）
 
-1. 解压本资料包。
-2. 打开 Codex / ChatGPT Work 中的 Pets 自定义桌宠流程。
-3. 上传本目录中的 `zhao-pet-v2.png`，不要上传 ZIP 文件。
-4. 按界面提示命名、保存并选择桌宠。
+原生 v2 安装只需要 `pet.json` 和 `spritesheet.webp`。本仓库的 `zhao-codex-native-v2.zip` 根目录正好只有这两个文件。
 
-这是 Pets 使用的完整 v2 精灵图集，包含九种动画状态及 16 个视线方向。16 向在图集最后两行；本 ZIP 不是独立应用，也不是可直接导入的安装程序。
+## Windows
+
+将 ZIP 下载到“下载”文件夹，在 PowerShell 中执行：
+
+```powershell
+$zip = Join-Path $env:USERPROFILE 'Downloads\zhao-codex-native-v2.zip'
+$stage = Join-Path $env:TEMP ('zhao-codex-' + [guid]::NewGuid().ToString('N'))
+Expand-Archive -LiteralPath $zip -DestinationPath $stage
+
+$petDir = Join-Path $env:USERPROFILE '.codex\pets\zhao'
+$names = @('pet.json', 'spritesheet.webp')
+$existing = @($names | Where-Object { Test-Path -LiteralPath (Join-Path $petDir $_) })
+if ($existing.Count -gt 0) { throw "目标文件已存在：$($existing -join ', ')。请先检查，不要覆盖。" }
+
+$manifest = Get-Content -LiteralPath (Join-Path $stage 'pet.json') -Raw | ConvertFrom-Json
+if ($manifest.id -ne 'zhao' -or $manifest.spriteVersionNumber -ne 2 -or $manifest.spritesheetPath -ne 'spritesheet.webp') { throw 'pet.json 与此安装包不匹配。' }
+if (-not (Test-Path -LiteralPath (Join-Path $stage 'spritesheet.webp'))) { throw '缺少 spritesheet.webp。' }
+
+New-Item -ItemType Directory -Path $petDir -Force | Out-Null
+Copy-Item -LiteralPath (Join-Path $stage 'pet.json') -Destination $petDir
+Copy-Item -LiteralPath (Join-Path $stage 'spritesheet.webp') -Destination $petDir
+Get-Item -LiteralPath (Join-Path $petDir 'pet.json'), (Join-Path $petDir 'spritesheet.webp') | Select-Object Name, Length
+```
+
+若 `$petDir` 中其他文件已存在，上面的步骤只复制这两个文件，不会删除或修改其他文件。若任一同名目标文件已存在，脚本会停止；请先检查并决定是否替换。
+
+然后在 Codex 的“设置 → Pets”刷新列表并选择“照”。如果仍未显示，先检查 Codex Desktop 是否使用 WSL 后端；不要擅自切换。切换可能影响依赖 WSL 的工作流，应先得到用户确认。无需修改应用安装目录。
+
+## macOS
+
+```bash
+unzip ~/Downloads/zhao-codex-native-v2.zip -d "${TMPDIR:-/tmp}/zhao-codex-native"
+pet_dir="$HOME/.codex/pets/zhao"
+for name in pet.json spritesheet.webp; do
+  if [ -e "$pet_dir/$name" ]; then echo "目标文件已存在：$pet_dir/$name；停止安装，不覆盖。"; exit 1; fi
+done
+mkdir -p "$pet_dir"
+cp "${TMPDIR:-/tmp}/zhao-codex-native/pet.json" "$pet_dir/"
+cp "${TMPDIR:-/tmp}/zhao-codex-native/spritesheet.webp" "$pet_dir/"
+```
+
+安装后重新打开 Codex，前往 Settings → Pets 刷新并选择“照”。
