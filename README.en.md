@@ -6,7 +6,7 @@ Zhao is an animated pet asset for Codex Desktop, not a standalone app. The nativ
 
 ## Quick install
 
-1. Download [`zhao-codex-native-v2.zip`](zhao-codex-native-v2.zip) and extract it to a temporary folder.
+1. Download [zhao-codex-native-v2.zip](https://github.com/XCPeiyuan/zhao-chatgpt-pet/releases/download/v1.0.0/zhao-codex-native-v2.zip) and extract it to a temporary folder.
 2. Copy `pet.json` and `spritesheet.webp` into `%USERPROFILE%\.codex\pets\zhao\`. Do not use the temporary extraction folder itself as the pet directory.
 3. Refresh Pets in Codex Settings and select “照”. If either destination file already exists, stop and inspect it instead of overwriting it.
 
@@ -15,6 +15,7 @@ See the [Windows / macOS installation guide in Chinese](INSTALL-zh-CN.md) or the
 ## Native pet package
 
 - `zhao-codex-native-v2.zip`: installable archive whose root contains only `pet.json` and `spritesheet.webp`.
+- `zhao-pets-upload-bundle.zip`: legacy Work Pets upload bundle, not a native Codex install; use the release above.
 - `codex-native/pet.json`: pet ID `zhao`, display name “照”, sprite version 2.
 - `codex-native/spritesheet.webp`: lossless WebP, 1536 × 2288 px, transparent RGBA, 8 columns × 11 rows, 192 × 208 px per cell.
 - `zhao-pet-v2.png`: PNG source used for visual verification.
